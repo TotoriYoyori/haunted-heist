@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class ItemPickUp : MonoBehaviour                          // Solve all the bugs with turning off flashlight at inappropriate times
 {
     public GameObject closest_item;
-    [SerializeField] GameObject SelectionAura;
+    GameObject SelectionAura;
     [SerializeField] float pick_up_speed_default;
     bool is_picking;
     float picking_progress;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        SelectionAura = GameObject.Find("WorldCanvas/SelectionAura");
+    }
     void Start()
     {
         SelectionAura.SetActive(false);

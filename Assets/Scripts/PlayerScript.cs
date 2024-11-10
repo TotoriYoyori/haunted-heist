@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : NetworkBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] bool is_robber;
+    [SerializeField] GameObject player_camera;
     public bool frozen;
     // Start is called before the first frame update
     void Awake()
     {
         if (is_robber) Game.robber = this.gameObject;
         else Game.ghost = this.gameObject;
+        //Instantiate(player_camera);
+        Game.player = this.gameObject;
     }
 
     // Update is called once per frame
@@ -24,11 +28,12 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         AbilitiesInput();
+        //player_camera.GetComponent<CameraScript>().to_follow = transform.position;
     }
-
+    
     void AbilitiesInput()
     {
-        if (Game.player != this.gameObject) return;
+        if (!IsLocalPlayer) return;
         // Left Mouse Abilities (NightVision and ChargeAttack)
         if (Input.GetButtonDown("Fire1"))
         {
@@ -68,7 +73,7 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 MovementInput()
     {
-        if (Game.player != this.gameObject || frozen) return Vector3.zero;
+        if (frozen || !IsLocalPlayer) return Vector3.zero;
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");

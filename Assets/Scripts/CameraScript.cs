@@ -13,6 +13,7 @@ public class CameraScript : MonoBehaviour
 {
     public Vector2 to_follow = Vector2.zero;
     [SerializeField] float speed;
+    [SerializeField] bool is_robber_camera;
     public GameObject filter;
 
     float camera_left_border;
@@ -25,8 +26,18 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       Game.camera = this.gameObject;
-       CameraMode(camera_mode.ROBBER);
+        if (is_robber_camera)
+        {
+            Game.robber_camera = this.gameObject;
+            CameraMode(camera_mode.ROBBER);
+
+        }
+        else
+        {
+            Game.ghost_camera = this.gameObject;
+            CameraMode(camera_mode.GHOST);
+        }
+        
     }
 
     // Update is called once per frame

@@ -39,14 +39,14 @@ public class RobberScript : MonoBehaviour
     {
         if (is_on)
         {
-            Game.camera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER_SPECIAL);
+            Game.robber_camera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER_SPECIAL);
         }
         else
         {
-            Game.camera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
+            Game.robber_camera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
         }
 
         nightvision_on = is_on;
-        Game.camera.GetComponent<CameraScript>().filter.SetActive(is_on);
+        Game.robber_camera.GetComponent<CameraScript>().filter.SetActive(is_on);
     }
 }

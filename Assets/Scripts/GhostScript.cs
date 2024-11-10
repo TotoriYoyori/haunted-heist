@@ -96,15 +96,15 @@ public class GhostScript : MonoBehaviour
     {
         if (is_on)
         {
-            Game.camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST_SPECIAL);
+            Game.ghost_camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST_SPECIAL);
         }
         else
         {
-            Game.camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
+            Game.ghost_camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
         }
 
         stepvision_on = is_on;
-        Game.camera.GetComponent<CameraScript>().filter.SetActive(is_on);
+        Game.ghost_camera.GetComponent<CameraScript>().filter.SetActive(is_on);
     }
 
 
