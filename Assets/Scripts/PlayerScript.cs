@@ -7,10 +7,11 @@ public class PlayerScript : NetworkBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] bool is_robber;
-    [SerializeField] GameObject player_camera;
+    public GameObject player_camera;
     [SerializeField] GameObject this_robber;
     [SerializeField] GameObject this_ghost;
- 
+    [SerializeField] GameObject pointer;
+
     public bool frozen;
     // Start is called before the first frame update
     void Awake()
@@ -18,17 +19,28 @@ public class PlayerScript : NetworkBehaviour
         //if (is_robber) Game.robber = this.gameObject;
         if (Game.robber == null)
         {
-            Game.robber = this.gameObject;
+            Game.robber = this_robber;
+            this_robber.GetComponent<RobberScript>().player = this.gameObject;
+            player_camera = GameObject.Find("RobberCamera");
+            Game.robber_camera = player_camera;
             is_robber = true;
             this_robber.SetActive(true);
         }
         else
         {
-            Game.ghost = this.gameObject;
+            Game.ghost = this_ghost;
+            this_ghost.GetComponent<GhostScript>().player = this.gameObject;
+            player_camera = GameObject.Find("GhostCamera");
+            Game.ghost_camera = player_camera;
             this_ghost.SetActive(true);
+
+            //Deactivating the other camera
+           
+            
         }
         //Instantiate(player_camera);
-        Game.player = this.gameObject;
+        //Game.player = this.gameObject;
+       
     }
 
     // Update is called once per frame
@@ -41,7 +53,7 @@ public class PlayerScript : NetworkBehaviour
     private void Update()
     {
         AbilitiesInput();
-        //player_camera.GetComponent<CameraScript>().to_follow = transform.position;
+        player_camera.GetComponent<CameraScript>().to_follow = transform.position;
     }
     
     void AbilitiesInput()

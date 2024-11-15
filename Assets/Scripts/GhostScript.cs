@@ -11,6 +11,8 @@ public class GhostScript : MonoBehaviour
     [SerializeField] GameObject aiming_arrow;
     [SerializeField] GameObject ghost_hiding;
     [SerializeField] GameObject ghost_attacking;
+    public GameObject player;
+    GameObject GhostCamera;
     Vector2 mouse_position;
     Vector2 charge_target_position = Vector2.zero;
     float charge_time;
@@ -20,7 +22,7 @@ public class GhostScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GhostCamera = player.GetComponent<PlayerScript>().player_camera;
     }
 
     // Update is called once per frame
@@ -75,7 +77,7 @@ public class GhostScript : MonoBehaviour
 
     void Hide(bool is_hiding)
     {
-        GetComponent<PlayerScript>().frozen = !is_hiding;
+        player.GetComponent<PlayerScript>().frozen = !is_hiding;
         ghost_hiding.SetActive(is_hiding);
         ghost_attacking.SetActive(!is_hiding);
     }
@@ -96,15 +98,15 @@ public class GhostScript : MonoBehaviour
     {
         if (is_on)
         {
-            Game.ghost_camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST_SPECIAL);
+            GhostCamera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST_SPECIAL);
         }
         else
         {
-            Game.ghost_camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
+            GhostCamera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
         }
 
         stepvision_on = is_on;
-        Game.ghost_camera.GetComponent<CameraScript>().filter.SetActive(is_on);
+        GhostCamera.GetComponent<CameraScript>().filter.SetActive(is_on);
     }
 
 

@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 8325130248351566408}
   - component: {fileID: 6651173392579194559}
   - component: {fileID: 4171904452070117632}
-  - component: {fileID: 6972117141710829193}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -259,28 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   to_follow: {x: 0, y: 0}
   speed: 0.1
+  is_robber_camera: 0
   filter: {fileID: 1927288426021714236}
---- !u!114 &6972117141710829193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3610784138066887154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 0
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &7478639639175474928
 GameObject:
   m_ObjectHideFlags: 0
