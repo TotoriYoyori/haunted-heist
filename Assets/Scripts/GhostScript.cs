@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -23,6 +25,8 @@ public class GhostScript : MonoBehaviour
     void Start()
     {
         GhostCamera = player.GetComponent<PlayerScript>().player_camera;
+        player.transform.position = GameObject.Find("GhostSpawnPoint").transform.position;
+        GhostCamera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
     }
 
     // Update is called once per frame
@@ -53,7 +57,10 @@ public class GhostScript : MonoBehaviour
         float coolT = Mathf.Pow(progress, 2);
 
 
-        transform.position = Vector3.Lerp(charge_starting_position, charge_target_position, coolT);
+        player.transform.position = Vector3.Lerp(charge_starting_position, charge_target_position, coolT);
+        
+        //player.GetComponent<NetworkTransform>().SetDirty();
+        
 
         if (progress == 1) EndCharge();
     }

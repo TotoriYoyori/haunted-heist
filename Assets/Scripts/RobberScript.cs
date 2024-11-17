@@ -15,6 +15,8 @@ public class RobberScript : MonoBehaviour
     void Start()
     {
         RobberCamera = player.GetComponent<PlayerScript>().player_camera;
+        RobberCamera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
+        player.transform.position = GameObject.Find("RobberSpawnPoint").transform.position;
     }
 
     // Update is called once per frame

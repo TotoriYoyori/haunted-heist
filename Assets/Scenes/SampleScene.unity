@@ -215,6 +215,7 @@ RectTransform:
   m_Children:
   - {fileID: 887003943}
   - {fileID: 846547801}
+  - {fileID: 574185948}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -836,6 +837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobberCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 4171904452070117632, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
+      propertyPath: filter
+      value: 
+      objectReference: {fileID: 1253529366}
     - target: {fileID: 6972117141710829193, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1524185811
@@ -860,7 +865,7 @@ GameObject:
   - component: {fileID: 262025718}
   - component: {fileID: 262025720}
   - component: {fileID: 262025719}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,11 +990,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262025717}
   m_CullTransparentMesh: 1
---- !u!1 &440048658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1389351770186806777, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
-  m_PrefabInstance: {fileID: 1689163357}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534174642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,14 +1149,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574185947}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2296, y: 0.11784446, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.097, y: 0.25954446, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 858282703}
   - {fileID: 1854025836}
-  m_Father: {fileID: 0}
+  - {fileID: 1674550726}
+  - {fileID: 1387874164}
+  m_Father: {fileID: 31560726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &574185949
 MonoBehaviour:
@@ -1250,7 +1252,7 @@ GameObject:
   - component: {fileID: 631851403}
   - component: {fileID: 631851405}
   - component: {fileID: 631851404}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1523,7 @@ GameObject:
   - component: {fileID: 731440610}
   - component: {fileID: 731440609}
   - component: {fileID: 731440608}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: ClientButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2178,7 +2180,7 @@ GameObject:
   - component: {fileID: 846547803}
   - component: {fileID: 846547802}
   - component: {fileID: 846547804}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: NetworkManagerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2433,6 +2435,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887003942}
   m_CullTransparentMesh: 1
+--- !u!1 &941387417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1927288426021714236, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
+  m_PrefabInstance: {fileID: 1689163357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1013847515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,6 +2772,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7491043803822929687, guid: af1db028be7888847859bc43eeec9c49, type: 3}
   m_PrefabInstance: {fileID: 1176065464}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1253529366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1389351770186806777, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
+  m_PrefabInstance: {fileID: 230215986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1382678352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2831,6 +2843,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7491043803822929687, guid: af1db028be7888847859bc43eeec9c49, type: 3}
   m_PrefabInstance: {fileID: 1382678352}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1387874163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1387874164}
+  m_Layer: 0
+  m_Name: GhostSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1387874164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387874163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 574185948}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1441583584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3051,7 @@ GameObject:
   - component: {fileID: 1620361592}
   - component: {fileID: 1620361591}
   - component: {fileID: 1620361590}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: HostButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3194,7 +3237,7 @@ GameObject:
   - component: {fileID: 1652976842}
   - component: {fileID: 1652976844}
   - component: {fileID: 1652976843}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3336,7 +3379,7 @@ GameObject:
   - component: {fileID: 1673823185}
   - component: {fileID: 1673823184}
   - component: {fileID: 1673823183}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: ServerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3445,6 +3488,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673823181}
   m_CullTransparentMesh: 1
+--- !u!1 &1674550725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1674550726}
+  m_Layer: 0
+  m_Name: RobberSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1674550726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674550725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -8.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 574185948}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1689163357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3471,15 +3545,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602834570123552936, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1602834570123552936, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1602834570123552936, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1602834570123552936, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3500,7 +3574,7 @@ PrefabInstance:
     - target: {fileID: 4171904452070117632, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: filter
       value: 
-      objectReference: {fileID: 440048658}
+      objectReference: {fileID: 941387417}
     - target: {fileID: 6972117141710829193, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3780135573
@@ -4087,7 +4161,6 @@ SceneRoots:
   - {fileID: 6252618871126702314}
   - {fileID: 1146417104}
   - {fileID: 31560726}
-  - {fileID: 574185948}
   - {fileID: 1441583587}
-  - {fileID: 1689163357}
   - {fileID: 230215986}
+  - {fileID: 1689163357}
