@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 public class PlayerScript : NetworkBehaviour
 {
@@ -19,42 +20,59 @@ public class PlayerScript : NetworkBehaviour
         //if (is_robber) Game.robber = this.gameObject;
         if (Game.robber == null)
         {
-            Game.robber = this_robber;
-            this_robber.GetComponent<RobberScript>().player = this.gameObject;
-            player_camera = GameObject.Find("GhostCamera");
-            Game.robber_camera = player_camera;
-            is_robber = true;
             this_robber.SetActive(true);
+            Game.robber = this_robber;
+            Game.robber_player = GetComponent<PlayerScript>();
+            this_robber.GetComponent<RobberScript>().player = this.gameObject;
+            player_camera = Game.robber_camera;
+            //Game.robber_camera = player_camera;
+            is_robber = true;
+            //Game.robber_id = GetComponent<NetworkObject>().OwnerClientId;
         }
         else
         {
             Game.ghost = this_ghost;
+            Game.ghost_player = GetComponent<PlayerScript>();
             this_ghost.GetComponent<GhostScript>().player = this.gameObject;
-            player_camera = GameObject.Find("RobberCamera");
-            Game.ghost_camera = player_camera;
-            this_ghost.SetActive(true);          
+            player_camera = Game.ghost_camera;
+            //Game.ghost_camera = player_camera;
+            this_ghost.SetActive(true);
+            //Game.ghost_id = GetComponent<NetworkObject>().OwnerClientId;
         }
 
-        if (Game.robber != null && Game.ghost != null)
-        {
-
-        }
-        //Instantiate(player_camera);
-        //Game.player = this.gameObject;
-       
     }
 
+    private void Start()
+    {
+        if (IsOwner) 
+        {
+            Debug.Log($"NetworkManager Status: {NetworkManager.Singleton.IsConnectedClient}");
+            Game.Server.GetComponent<NetworkScript>().PlayerJoinServerRpc();
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         transform.position += MovementInput();
 
     }
+    
+    
+    [ClientRpc] // It does turn on the camera but not on the correct client
+    public void ActivateCameraClientRpc(ClientRpcParams rpcParams = default)
+    {
+        // Ensure this ClientRpc only targets the specified client
+        Game.robber_camera.SetActive(false);
+        Game.ghost_camera.SetActive(false);
 
+        player_camera.SetActive(true);
+        Debug.Log("Camera was activated");
+
+    }
     private void Update()
     {
         AbilitiesInput();
-        player_camera.GetComponent<CameraScript>().to_follow = transform.position;
+        //player_camera.GetComponent<CameraScript>().transform_to_follow.Value = transform.position;
     }
     
     void AbilitiesInput()

@@ -34,7 +34,7 @@ public class GhostScript : MonoBehaviour
     {
         Vector3 screen_mouse_position = Input.mousePosition;
         //screen_mouse_position.z = Camera.main.nearClipPlane; 
-        mouse_position = Camera.main.ScreenToWorldPoint(screen_mouse_position);
+        mouse_position = Game.ghost_camera.GetComponent<Camera>().ScreenToWorldPoint(screen_mouse_position);
 
         if (is_aiming) AimForCharge(mouse_position);
         if (charge_target_position != Vector2.zero) Charging();

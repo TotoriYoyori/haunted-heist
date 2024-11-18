@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Networking.Transport.Error;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class Game : NetworkBehaviour
 {
     public static GameObject player;
     public static GameObject robber;
     public static GameObject ghost;
+    public static PlayerScript robber_player;
+    public static PlayerScript ghost_player;
     public static GameObject robber_camera;
     public static GameObject ghost_camera;
     public static GameObject level;
+    public static GameObject Server;
+    public static ulong robber_id;
+    public static ulong ghost_id;
 
     public GameObject robberPrefab;
     public GameObject ghostPrefab;
@@ -30,7 +37,7 @@ public class Game : MonoBehaviour
     {
         //if (player != null) camera.GetComponent<CameraScript>().to_follow = player.transform.position;
     }
-
+    /*
     void SwitchCharacters()
     {
         player = (player == robber) ? ghost : robber;
@@ -44,15 +51,6 @@ public class Game : MonoBehaviour
         {
             GetComponent<Camera>().GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
         }
-    }
+    }*/
 
-    /*
-        [ServerRpc(RequireOwnership = false)]
-        public void RequestSpawnWithSelectedPrefabServerRpc(int prefabIndex, ServerRpcParams rpcParams = default)
-        {
-            GameObject prefabToSpawn = prefabIndex == 0 ? robberPrefab : ghostPrefab;
-            GameObject playerInstance = Instantiate(prefabToSpawn);
-
-            playerInstance.GetComponent<NetworkObject>().SpawnAsPlayerObject(rpcParams.Receive.SenderClientId);
-        }*/
 }
