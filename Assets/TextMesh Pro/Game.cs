@@ -11,6 +11,9 @@ public class Game : MonoBehaviour
     public static GameObject robber_camera;
     public static GameObject ghost_camera;
     public static GameObject level;
+    public static GameObject Server;
+    public static PlayerScript robber_player;
+    public static PlayerScript ghost_player;
 
     public GameObject robberPrefab;
     public GameObject ghostPrefab;

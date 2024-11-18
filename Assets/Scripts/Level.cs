@@ -23,5 +23,8 @@ public class Level : MonoBehaviour
         bottom_level_border = level_borders.min.y + level_margin_y;
         left_level_border = level_borders.min.x + level_margin_x;
         right_level_border = level_borders.max.x - level_margin_x;
+
+        Game.robber_camera = GameObject.Find("GhostCamera");
+        Game.ghost_camera = GameObject.Find("RobberCamera");
     }
 }
