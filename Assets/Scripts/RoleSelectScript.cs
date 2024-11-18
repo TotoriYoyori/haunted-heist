@@ -5,7 +5,7 @@ using Unity.Netcode;
 using UnityEngine.UI;
 
 public class RoleSelectScript : NetworkBehaviour
-{
+{/*
     [SerializeField] Button robberButton;
     [SerializeField] Button ghostButton;
     GameObject game;
@@ -25,5 +25,5 @@ public class RoleSelectScript : NetworkBehaviour
             this.gameObject.SetActive(false);
         });
     }
-
+    */
 }

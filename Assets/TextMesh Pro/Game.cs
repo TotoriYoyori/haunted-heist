@@ -11,6 +11,9 @@ public class Game : MonoBehaviour
     public static GameObject robber_camera;
     public static GameObject ghost_camera;
     public static GameObject level;
+    public static GameObject Server;
+    public static PlayerScript robber_player;
+    public static PlayerScript ghost_player;
 
     public GameObject robberPrefab;
     public GameObject ghostPrefab;
@@ -31,28 +34,5 @@ public class Game : MonoBehaviour
         //if (player != null) camera.GetComponent<CameraScript>().to_follow = player.transform.position;
     }
 
-    void SwitchCharacters()
-    {
-        player = (player == robber) ? ghost : robber;
-        GetComponent<Camera>().GetComponent<CameraScript>().to_follow = player.transform.position;
-
-        if (player == robber)
-        {
-            GetComponent<Camera>().GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
-        }
-        else
-        {
-            GetComponent<Camera>().GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
-        }
-    }
-
-
-    [ServerRpc(RequireOwnership = false)]
-    public void RequestSpawnWithSelectedPrefabServerRpc(int prefabIndex, ServerRpcParams rpcParams = default)
-    {
-        GameObject prefabToSpawn = prefabIndex == 0 ? robberPrefab : ghostPrefab;
-        GameObject playerInstance = Instantiate(prefabToSpawn);
-
-        playerInstance.GetComponent<NetworkObject>().SpawnAsPlayerObject(rpcParams.Receive.SenderClientId);
-    }
+   
 }
