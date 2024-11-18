@@ -34,28 +34,5 @@ public class Game : MonoBehaviour
         //if (player != null) camera.GetComponent<CameraScript>().to_follow = player.transform.position;
     }
 
-    void SwitchCharacters()
-    {
-        player = (player == robber) ? ghost : robber;
-        GetComponent<Camera>().GetComponent<CameraScript>().to_follow = player.transform.position;
-
-        if (player == robber)
-        {
-            GetComponent<Camera>().GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
-        }
-        else
-        {
-            GetComponent<Camera>().GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
-        }
-    }
-
-    /*
-        [ServerRpc(RequireOwnership = false)]
-        public void RequestSpawnWithSelectedPrefabServerRpc(int prefabIndex, ServerRpcParams rpcParams = default)
-        {
-            GameObject prefabToSpawn = prefabIndex == 0 ? robberPrefab : ghostPrefab;
-            GameObject playerInstance = Instantiate(prefabToSpawn);
-
-            playerInstance.GetComponent<NetworkObject>().SpawnAsPlayerObject(rpcParams.Receive.SenderClientId);
-        }*/
+   
 }

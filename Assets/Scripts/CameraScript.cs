@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using Unity.Netcode;
 using UnityEngine;
 public enum camera_mode
 {
@@ -9,9 +10,10 @@ public enum camera_mode
     ROBBER_SPECIAL,
     GHOST_SPECIAL
 }
-public class CameraScript : MonoBehaviour
+public class CameraScript : NetworkBehaviour
 {
-    public Vector2 to_follow = Vector2.zero;
+    public NetworkVariable<Vector2> transform_to_follow = new NetworkVariable<Vector2>();
+    Vector2 to_follow;
     [SerializeField] float speed;
     [SerializeField] bool is_robber_camera;
     public GameObject filter;
@@ -45,6 +47,11 @@ public class CameraScript : MonoBehaviour
     {
         Follow();
         CameraBorders();
+    }
+
+    private void Update()
+    {
+        to_follow = transform_to_follow.Value;        
     }
 
     void CameraBorders()
