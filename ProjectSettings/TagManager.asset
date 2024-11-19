@@ -9,8 +9,9 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - UI_for_ghost
+  - Obstacle
   - Water
+  - UI
   - UI
   - UI_for_robber
   - Ghost
@@ -19,7 +20,6 @@ TagManager:
   - Messages
   - Robber
   - NetworkUI
-  - 
   - 
   - 
   - 
