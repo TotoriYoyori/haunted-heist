@@ -28,16 +28,17 @@ public class CameraScript : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         if (is_robber_camera)
         {
             Game.robber_camera = this.gameObject;
-            CameraMode(camera_mode.ROBBER);
+            //CameraMode(camera_mode.ROBBER);
 
         }
         else
         {
             Game.ghost_camera = this.gameObject;
-            CameraMode(camera_mode.GHOST);
+            //CameraMode(camera_mode.GHOST);
         }
         
     }

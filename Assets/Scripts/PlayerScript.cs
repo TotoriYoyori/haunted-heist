@@ -65,7 +65,7 @@ public class PlayerScript : NetworkBehaviour
     private void Update()
     {
         AbilitiesInput();
-        player_camera.GetComponent<CameraScript>().transform_to_follow.Value = transform.position;
+        if (IsOwner) UpdatePlayerPositionServerRpc();
     }
 
     [ClientRpc] // It does turn on the camera but not on the correct client
@@ -133,5 +133,10 @@ public class PlayerScript : NetworkBehaviour
         return Movement;
     }
 
-    
+    [ServerRpc]
+    public void UpdatePlayerPositionServerRpc()
+    {
+        player_camera.GetComponent<CameraScript>().transform_to_follow.Value = transform.position;
+    }
+
 }
