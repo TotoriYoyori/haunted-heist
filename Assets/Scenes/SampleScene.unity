@@ -996,11 +996,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3610784138066887154, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
   m_PrefabInstance: {fileID: 230215986}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &389412888 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8325130248351566408, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
-  m_PrefabInstance: {fileID: 230215986}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &389412890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,7 +1337,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 389412888}
+  m_Camera: {fileID: 1689163365}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1353,7 +1348,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &593426453
 RectTransform:
@@ -3818,6 +3813,11 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!20 &1689163365 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8325130248351566408, guid: 319b61caf8492b349bfef3cd145c5c6a, type: 3}
+  m_PrefabInstance: {fileID: 1689163357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1795603022
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class PlayerScript : NetworkBehaviour
             this_robber.GetComponent<RobberScript>().player = this.gameObject;
             Game.robber_player = GetComponent<PlayerScript>();
             player_camera = Game.robber_camera;
+            player_camera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
             //Game.robber_camera = player_camera;
             is_robber = true;
             this_robber.SetActive(true);
@@ -32,17 +33,12 @@ public class PlayerScript : NetworkBehaviour
             Game.ghost = this_ghost;
             this_ghost.GetComponent<GhostScript>().player = this.gameObject;
             player_camera = Game.ghost_camera;
+            player_camera.GetComponent<CameraScript>().CameraMode(camera_mode.GHOST);
             //Game.ghost_camera = player_camera;
             Game.ghost_player = GetComponent<PlayerScript>();
             this_ghost.SetActive(true);          
         }
 
-        if (Game.robber != null && Game.ghost != null)
-        {
-
-        }
-        //Instantiate(player_camera);
-        //Game.player = this.gameObject;
        
     }
 

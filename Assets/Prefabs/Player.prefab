@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2553063883353318919, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2544794818
+      value: 1016898497
       objectReference: {fileID: 0}
     - target: {fileID: 2553063883353318919, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -228,9 +228,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 826854020676693221, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
     - {fileID: 1020019961981241648, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
-    - {fileID: 2553063883353318919, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
     - {fileID: 5119569414888049549, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
     - {fileID: 6230575898041122431, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
+    - {fileID: 2553063883353318919, guid: 7c94cdbce6ef6fa47a98091447619c61, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -303,18 +303,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600428800128750125, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 479966494
+      value: 1016898497
       objectReference: {fileID: 0}
     - target: {fileID: 8600428800128750125, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
       value: 193300210
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8600428800128750125, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
     - {fileID: 3369929233873947577, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
     - {fileID: 1960185125850212151, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
     - {fileID: -507100013496564499, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
     - {fileID: 8397367342951527216, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
+    - {fileID: 8600428800128750125, guid: f70edb7f4924ba94a926da9fa6d2bdf5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -10,7 +10,7 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] Button hostButton;
     [SerializeField] Button clientButton;
 
-    private void Awake()
+    private void Start()
     {
         serverButton.onClick.AddListener(() =>
         {
@@ -20,12 +20,39 @@ public class NetworkManagerUI : NetworkBehaviour
         {
             NetworkManager.Singleton.StartHost();
             //GetComponent<PlayerSelectionHandler>().RequestSpawnWithSelectedPrefabServerRpc(1);
+            DisableConnectionUIServerRpc();
         });
         clientButton.onClick.AddListener(() =>
         {
         NetworkManager.Singleton.StartClient();
-            //GetComponent<PlayerSelectionHandler>().RequestSpawnWithSelectedPrefabServerRpc(0);
+
+            //to do, find a way to disable it for the ghost/client as well
         });
+    }
+
+    [ClientRpc] // It does turn on the camera but not on the correct client
+    public void DisableConnectionUIClientRpc(ClientRpcParams rpcParams = default)
+    {
+        // Ensure this ClientRpc only targets the specified client
+        this.gameObject.SetActive(false);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void DisableConnectionUIServerRpc(ServerRpcParams rpcParams = default)
+    {
+        Debug.Log("ConnectionUI was disabled");
+        ulong callingClientId = rpcParams.Receive.SenderClientId;
+
+        // Set up ClientRpcParams to target the requesting client
+        var clientRpcParams = new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new ulong[] { callingClientId } // Only send to this client
+            }
+        };
+
+        DisableConnectionUIClientRpc(clientRpcParams);
     }
 
 }
