@@ -17,7 +17,7 @@ public class ItemPickUp : MonoBehaviour                          // Solve all th
     }
     void Start()
     {
-        SelectionAura.SetActive(false);
+        if (SelectionAura != null) SelectionAura.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class ItemPickUp : MonoBehaviour                          // Solve all th
         }
         else if (Game.robber.GetComponent<RobberScript>().flashlight.activeSelf == false)
         {
-            SelectionAura.SetActive (false);
+            if (SelectionAura != null) SelectionAura.SetActive (false);
             closest_item = null;
             is_picking = false;
         }

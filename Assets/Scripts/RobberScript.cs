@@ -7,16 +7,22 @@ public class RobberScript : MonoBehaviour
 {
     public GameObject flashlight;
     public GameObject ItemPickUpAura;
+    public GameObject DarkFilter;
     public GameObject player;
     GameObject RobberCamera;
     bool nightvision_on;
-    
+
     // Start is called before the first frame update
+    private void Awake()
+    {
+        DarkFilter = GameObject.Find("BaseDark");
+    }
     void Start()
     {
         RobberCamera = player.GetComponent<PlayerScript>().player_camera;
         RobberCamera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
         player.transform.position = GameObject.Find("RobberSpawnPoint").transform.position;
+        
     }
 
     // Update is called once per frame
@@ -30,11 +36,13 @@ public class RobberScript : MonoBehaviour
         if (is_on)
         {
             flashlight.SetActive(true);
+            DarkFilter.SetActive(false);
             Debug.Log("FlashlightOn");
         }
         else
         {
             Debug.Log("FlashlightOff");
+            DarkFilter.SetActive(true);
             flashlight.SetActive(false);
         }
     }
@@ -44,10 +52,12 @@ public class RobberScript : MonoBehaviour
         if (is_on)
         {
             RobberCamera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER_SPECIAL);
+            DarkFilter.SetActive(false);
         }
         else
         {
             RobberCamera.GetComponent<CameraScript>().CameraMode(camera_mode.ROBBER);
+            DarkFilter.SetActive(true);
         }
 
         nightvision_on = is_on;

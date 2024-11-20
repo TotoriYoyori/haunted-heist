@@ -11,15 +11,18 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] Button serverButton;
     [SerializeField] Button hostButton;
     [SerializeField] Button clientButton;
+    [SerializeField] bool host_auto_connect;
 
     private void Start()
     {
+        //Debug.Log("UI");
         serverButton.onClick.AddListener(() =>
         {
             NetworkManager.Singleton.StartServer();
         });
         hostButton.onClick.AddListener(() =>
         {
+            Debug.Log("Trying to create host");
             NetworkManager.Singleton.StartHost();
             //GetComponent<PlayerSelectionHandler>().RequestSpawnWithSelectedPrefabServerRpc(1);
             DisableConnectionUIServerRpc();
@@ -31,6 +34,14 @@ public class NetworkManagerUI : NetworkBehaviour
 
             //to do, find a way to disable it for the ghost/client as well
         });
+
+        if (host_auto_connect)
+        {
+            Debug.Log("Trying to create host");
+            NetworkManager.Singleton.StartHost();
+            //GetComponent<PlayerSelectionHandler>().RequestSpawnWithSelectedPrefabServerRpc(1);
+            DisableConnectionUIServerRpc();
+        }
     }
 
     [ClientRpc] // It does turn on the camera but not on the correct client

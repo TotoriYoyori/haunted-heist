@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6491f04e7d9354e955c0293d8a82df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.125
   is_robber: 0
   player_camera: {fileID: 0}
   this_robber: {fileID: 5015412269254400969}
