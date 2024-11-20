@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
+using System.Net;
+using Unity.Netcode.Transports.UTP;
 
 public class NetworkManagerUI : NetworkBehaviour
 {
@@ -24,7 +26,8 @@ public class NetworkManagerUI : NetworkBehaviour
         });
         clientButton.onClick.AddListener(() =>
         {
-        NetworkManager.Singleton.StartClient();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("10.11.148.114", 7777);
+            NetworkManager.Singleton.StartClient();
 
             //to do, find a way to disable it for the ghost/client as well
         });
