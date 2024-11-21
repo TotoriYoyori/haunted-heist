@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public static GameObject ghost_camera;
     public static GameObject level;
     public static GameObject Server;
+    //public static GameObject item_lottery;
     public static PlayerScript robber_player;
     public static PlayerScript ghost_player;
 

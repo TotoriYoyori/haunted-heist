@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using Unity.Netcode;
 using UnityEngine;
+
 public enum camera_mode
 {
     ROBBER,
@@ -16,6 +17,7 @@ public class CameraScript : NetworkBehaviour
     Vector2 to_follow;
     [SerializeField] float speed;
     [SerializeField] bool is_robber_camera;
+    //public GameObject canvas;
     public GameObject filter;
 
     float camera_left_border;
