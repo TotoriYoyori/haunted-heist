@@ -10,10 +10,13 @@ public class ItemPickUp : MonoBehaviour                          // Solve all th
     [SerializeField] float pick_up_speed_default;
     bool is_picking;
     float picking_progress;
+    GameObject item_lottery;
     // Start is called before the first frame update
     private void Awake()
     {
         SelectionAura = GameObject.Find("WorldCanvas/SelectionAura");
+        item_lottery = GameObject.Find("ItemManager");
+
     }
     void Start()
     {
@@ -56,7 +59,13 @@ public class ItemPickUp : MonoBehaviour                          // Solve all th
     void FinishPicking()
     {
         SelectionAura.GetComponent<Image>().fillAmount = 1;
-        closest_item.SetActive(false);                      // False pickup
+
+        // Send a message to item manager that something was picked up
+        if (item_lottery == null) Debug.Log("item lottery isnt assigned");
+        else if (closest_item == null) Debug.Log("closest_item isnt assigned");
+        else item_lottery.GetComponent<ItemLottery>().ItemPicked(closest_item.GetComponent<SpriteRenderer>().sprite);
+
+        closest_item.SetActive(false);                      // removing the item
         closest_item = null;
         is_picking = false;
     }

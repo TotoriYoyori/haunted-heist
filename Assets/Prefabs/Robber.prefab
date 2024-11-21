@@ -153,6 +153,7 @@ MonoBehaviour:
   ItemPickUpAura: {fileID: 8954297928538581366}
   DarkFilter: {fileID: 0}
   player: {fileID: 0}
+  items_collected: 0
 --- !u!114 &3498833539116988463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,4 +494,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closest_item: {fileID: 0}
-  pick_up_speed_default: 0.001
+  pick_up_speed_default: 0.003
